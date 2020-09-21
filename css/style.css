@@ -14,7 +14,7 @@ html {
 
 *:focus,
 *:active {
-  ountine: none;
+  outline: none;
   border: none;
   -webkit-box-shadow: none;
           box-shadow: none;
@@ -594,6 +594,7 @@ img {
 
 .filters-page {
   background-color: #FAF9F5;
+  display: none;
 }
 
 .filters-page .container {

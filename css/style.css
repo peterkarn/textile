@@ -596,7 +596,7 @@ img {
   background-color: #FAF9F5;
 }
 
-.filters-page .container {
+.filters-page__wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1074,6 +1074,115 @@ img {
   background: url("../img/filter/spoiler-open.svg");
 }
 
+.filters-page .pagination {
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.filters-page .pagination ul {
+  list-style: none outside;
+}
+
+.filters-page .pagination ul li {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+.filters-page .pagination .inactive,
+.filters-page .pagination .inactive:hover {
+  background-color: #E6E8EB;
+  color: #A9ADB2;
+}
+
+.filters-page .pagination .page-numbers {
+  font-size: 18px;
+  color: #009DB3;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 7px;
+  margin-bottom: 6px;
+  -webkit-transition: all 200ms ease-in-out;
+  -o-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
+  border-radius: 3px;
+  text-decoration: none;
+}
+
+.filters-page .pagination ul li span.current {
+  background: #009DB3;
+  border-radius: 50%;
+  color: #fff;
+}
+
+.filters-page .pagination ul li:last-child {
+  margin-left: 30px;
+}
+
+.filters-page .pagination ul li:last-child svg {
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.filters-page .pagination ul li:last-child:hover {
+  -webkit-transform: scale(1.15);
+      -ms-transform: scale(1.15);
+          transform: scale(1.15);
+}
+
+.filters-page .pagination ul li:first-child {
+  margin-right: 30px;
+}
+
+.filters-page .pagination ul li:last-child,
+.filters-page .pagination ul li:first-child {
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.filters-page .pagination ul li:last-child svg path,
+.filters-page .pagination ul li:first-child svg path {
+  -webkit-transition: fill .3s ease;
+  -o-transition: fill .3s ease;
+  transition: fill .3s ease;
+}
+
+.filters-page .pagination ul li:last-child:hover,
+.filters-page .pagination ul li:first-child:hover {
+  -webkit-transform: scale(1.15);
+      -ms-transform: scale(1.15);
+          transform: scale(1.15);
+}
+
+.filters-page .pagination ul li:last-child:hover svg path,
+.filters-page .pagination ul li:first-child:hover svg path {
+  -webkit-transition: fill .3s ease;
+  -o-transition: fill .3s ease;
+  transition: fill .3s ease;
+  fill: #009DB3;
+}
+
 .catalogue {
   padding: 30px 0 0 0;
 }
@@ -1141,115 +1250,6 @@ img {
 
 .catalogue__card {
   margin: 0 20px 40px;
-}
-
-.catalogue .pagination {
-  margin: 0 auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.catalogue .pagination ul {
-  list-style: none outside;
-}
-
-.catalogue .pagination ul li {
-  display: inline-block;
-  margin: 0;
-  padding: 0;
-}
-
-.catalogue .pagination .inactive,
-.catalogue .pagination .inactive:hover {
-  background-color: #E6E8EB;
-  color: #A9ADB2;
-}
-
-.catalogue .pagination .page-numbers {
-  font-size: 18px;
-  color: #009DB3;
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-right: 7px;
-  margin-bottom: 6px;
-  -webkit-transition: all 200ms ease-in-out;
-  -o-transition: all 200ms ease-in-out;
-  transition: all 200ms ease-in-out;
-  border-radius: 3px;
-  text-decoration: none;
-}
-
-.catalogue .pagination ul li span.current {
-  background: #009DB3;
-  border-radius: 50%;
-  color: #fff;
-}
-
-.catalogue .pagination ul li:last-child {
-  margin-left: 30px;
-}
-
-.catalogue .pagination ul li:last-child svg {
-  -webkit-transform: rotate(180deg);
-      -ms-transform: rotate(180deg);
-          transform: rotate(180deg);
-}
-
-.catalogue .pagination ul li:last-child:hover {
-  -webkit-transform: scale(1.15);
-      -ms-transform: scale(1.15);
-          transform: scale(1.15);
-}
-
-.catalogue .pagination ul li:first-child {
-  margin-right: 30px;
-}
-
-.catalogue .pagination ul li:last-child,
-.catalogue .pagination ul li:first-child {
-  -webkit-transition: 0.3s;
-  -o-transition: 0.3s;
-  transition: 0.3s;
-  cursor: pointer;
-}
-
-.catalogue .pagination ul li:last-child svg path,
-.catalogue .pagination ul li:first-child svg path {
-  -webkit-transition: fill .3s ease;
-  -o-transition: fill .3s ease;
-  transition: fill .3s ease;
-}
-
-.catalogue .pagination ul li:last-child:hover,
-.catalogue .pagination ul li:first-child:hover {
-  -webkit-transform: scale(1.15);
-      -ms-transform: scale(1.15);
-          transform: scale(1.15);
-}
-
-.catalogue .pagination ul li:last-child:hover svg path,
-.catalogue .pagination ul li:first-child:hover svg path {
-  -webkit-transition: fill .3s ease;
-  -o-transition: fill .3s ease;
-  transition: fill .3s ease;
-  fill: #009DB3;
 }
 
 .picked-color {

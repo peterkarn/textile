@@ -1,93 +1,103 @@
 var slider = document.getElementById('range');
 
 noUiSlider.create(slider, {
-	start: [1200, 8700],
-	step: 1,
-	margin: 1,
-	connect: true,
-	behaviour: 'tap-drag',
-	range: {
-		'min': 0,
-		'max': 10000
-	},
-	format: wNumb({
-		decimals: 0,
-		thousand: ' '
-	})
+  start: [1200, 8700],
+  step: 1,
+  margin: 1,
+  connect: true,
+  behaviour: 'tap-drag',
+  range: {
+    'min': 0,
+    'max': 10000
+  },
+  format: wNumb({
+    decimals: 0,
+    thousand: ' '
+  })
 });
 
 var minCostInput = document.getElementById('minCost'),
-	maxCostInput = document.getElementById('maxCost');
+  maxCostInput = document.getElementById('maxCost');
 
 slider.noUiSlider.on('update', function (values, handle) {
-	if (handle) {
-		maxCostInput.value = values[handle];
-	} else {
-		minCostInput.value = values[handle];
-	}
+  if (handle) {
+    maxCostInput.value = values[handle];
+  } else {
+    minCostInput.value = values[handle];
+  }
 });
 
 minCostInput.addEventListener('change', function () {
-	slider.noUiSlider.set(this.value);
+  slider.noUiSlider.set(this.value);
 });
 
 maxCostInput.addEventListener('change', function () {
-	slider.noUiSlider.set([null, this.value]);
+  slider.noUiSlider.set([null, this.value]);
 });
 
 
 $(document).ready(function () {
-	$('.spoller').click(function () {
-		$(this).toggleClass('active');
-		$(this).siblings('.spoller-body').slideToggle()
-	})
+  $('.spoller').click(function () {
+    $(this).toggleClass('active');
+    $(this).siblings('.spoller-body').slideToggle()
+  })
 
-	$('.catalogue__select_filter .catalogue__select-body').on('click', function (event) {
-		$('.filters-page__aside').fadeIn();
-	});
-	
-
-	$('.filters-page__close-x').on('click', function (event) {
-		$('.filters-page__aside').css('display', '');
-		$('.filters-page .container').removeClass('darken');
-	});
+  $('.catalogue__select_filter .catalogue__select-body').on('click', function (event) {
+    $('.filters-page__aside').fadeIn();
+  });
 
 
-	$.each($('.sizes__values'), function (index, val) {
-		if ($(this).find('input').prop('checked') == true) {
-			$(this).addClass('active');
-		}
-	});
+  $('.filters-page__close-x').on('click', function (event) {
+    $('.filters-page__aside').css('display', '');
+    $('.filters-page .container').removeClass('darken');
+  });
 
-	$(document).on('click', '.sizes__value', function (event) {
-		$(this).parents('.sizes__values').find('.sizes__value').removeClass('active');
-		$(this).parents('.sizes__values').find('.sizes__value input').prop('checked', false);
-		$(this).toggleClass('active');
-		$(this).find('input').prop('checked', true);
-		return false;
-	});
 
-	//filter-colors
-	$.each($('#multipleColorSelect'), function (index, val) {
-		if ($(this).find('input').prop('checked') == true) {
-			$(this).addClass('active');
-		}
-	});
-	$(document).on('click', '#multipleColorSelect .colors__color', function (event) {
-		$(this).toggleClass('active');
-		$(this).find('input').prop('checked', true);
-		return false;
-	});
+  $.each($('.sizes__values'), function (index, val) {
+    if ($(this).find('input').prop('checked') == true) {
+      $(this).addClass('active');
+    }
+  });
+
+  $(document).on('click', '.sizes__value', function (event) {
+    $(this).parents('.sizes__values').find('.sizes__value').removeClass('active');
+    $(this).parents('.sizes__values').find('.sizes__value input').prop('checked', false);
+    $(this).toggleClass('active');
+    $(this).find('input').prop('checked', true);
+    return false;
+  });
+
+  //filter-colors
+  $.each($('#multipleColorSelect'), function (index, val) {
+    if ($(this).find('input').prop('checked') == true) {
+      $(this).addClass('active');
+    }
+  });
+  $(document).on('click', '#multipleColorSelect .colors__color', function (event) {
+    $(this).toggleClass('active');
+    $(this).find('input').prop('checked', true);
+    return false;
+  });
 
 })
 
 $(window).resize(function () {
-	if ($(window).width() <= '1365' && $(window).width() > '766') {
-		$('.catalogue__select_filter .catalogue__select-body').on('click', function (event) {
-			$('.filters-page .container').addClass('darken');
-		});
-	}
-});;
+  if ($(window).width() <= '1365' && $(window).width() > '766') {
+    $('.catalogue__select_filter .catalogue__select-body').on('click', function (event) {
+      $('.filters-page .container').addClass('darken');
+    });
+  }
+});
+
+const defaultSelect = () => {
+  const element = document.querySelector('.catalogue__select_sort');
+  const choices = new Choices(element, {
+    searchEnabled: false,
+    itemSelectText: '',
+  });
+};
+
+defaultSelect();;
 (function (e) {
 	e.fn.hoverIntent = function (t, n, r) {
 		var i = {
@@ -421,88 +431,87 @@ move();
 
 
 $(function () {
-	$('.product__preview').slick({
-		slidesToShow: 3,
-		slidesToScroll: 1,
-		arrows: true,
-		asNavFor: '.product__picture',
-		vertical: true,
-		verticalSwiping: true,
-		focusOnSelect: true,
+  $('.product__preview').slick({
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    arrows: true,
+    asNavFor: '.product__picture',
+    vertical: true,
+    verticalSwiping: true,
+    focusOnSelect: true,
 
-		responsive: [{
-			breakpoint: 767,
-			settings: {
-				slidesToShow: 4
-			}
-		}]
-	});
-	$('.product__picture').slick({
-		slidesToShow: 1,
-		arrows: false,
-		asNavFor: '.product__preview'
-	});
+    responsive: [{
+      breakpoint: 767,
+      settings: {
+        slidesToShow: 4
+      }
+    }]
+  });
+  $('.product__picture').slick({
+    slidesToShow: 1,
+    arrows: false,
+    asNavFor: '.product__preview'
+  });
 
-	//colors
-	$.each($('#singleColorSelect'), function (index, val) {
-		if ($(this).find('input').prop('checked') == true) {
-			$(this).addClass('active');
-		}
-	});
-	$(document).on('click', '#singleColorSelect .colors__color', function (event) {
-		$(this).parents('.colors__values').find('.colors__color').removeClass('active');
-		$(this).parents('.colors__values').find('.colors__color input').prop('checked', false);
-		$(this).toggleClass('active');
-		$(this).find('input').prop('checked', true);
-		return false;
-	});
+  //colors
+  $.each($('#singleColorSelect'), function (index, val) {
+    if ($(this).find('input').prop('checked') == true) {
+      $(this).addClass('active');
+    }
+  });
+  $(document).on('click', '#singleColorSelect .colors__color', function (event) {
+    $(this).parents('.colors__values').find('.colors__color').removeClass('active');
+    $(this).parents('.colors__values').find('.colors__color input').prop('checked', false);
+    $(this).toggleClass('active');
+    $(this).find('input').prop('checked', true);
+    return false;
+  });
 
-	//sizes
+  //sizes
 
-	$.each($('.sizes__values'), function (index, val) {
-		if ($(this).find('input').prop('checked') == true) {
-			$(this).addClass('active');
-		}
-	});
-	$(document).on('click', '.sizes__value', function (event) {
-		$(this).parents('.sizes__values').find('.sizes__value').removeClass('active');
-		$(this).parents('.sizes__values').find('.sizes__value input').prop('checked', false);
-		$(this).toggleClass('active');
-		$(this).find('input').prop('checked', true);
-		return false;
-	});
+  $.each($('.sizes__values'), function (index, val) {
+    if ($(this).find('input').prop('checked') == true) {
+      $(this).addClass('active');
+    }
+  });
+  $(document).on('click', '.sizes__value', function (event) {
+    $(this).parents('.sizes__values').find('.sizes__value').removeClass('active');
+    $(this).parents('.sizes__values').find('.sizes__value input').prop('checked', false);
+    $(this).toggleClass('active');
+    $(this).find('input').prop('checked', true);
+    return false;
+  });
 
-	$('.slim-button').click(function () {
-		$(this).toggleClass('done');
-	});
+  $('.slim-button').click(function () {
+    $(this).toggleClass('done');
+  });
 
-	$('.js-tab-trigger').click(function () {
-		var id = $(this).attr('data-tab'),
-			content = $('.js-tab-content[data-tab="' + id + '"]');
+  $('.js-tab-trigger').click(function () {
+    var id = $(this).attr('data-tab'),
+      content = $('.js-tab-content[data-tab="' + id + '"]');
 
-		$('.js-tab-trigger.active').removeClass('active');
-		$(this).addClass('active');
+    $('.js-tab-trigger.active').removeClass('active');
+    $(this).addClass('active');
 
-		$('.js-tab-content.active').removeClass('active');
-		content.addClass('active');
-	});
+    $('.js-tab-content.active').removeClass('active');
+    content.addClass('active');
+  });
 
-	$('.catalogue__card').hover(function () {
-		$(this).children('.card-product').addClass('onthetop');
-	});
+  $('.catalogue__card').hover(function () {
+    $(this).children('.card-product').addClass('onthetop');
+  });
 
-	$('.catalogue__card').mouseleave(
-		function goBack() {
-			var cardGoesDown = $(this).find('.onthetop');
-			setTimeout(function () {
-				cardGoesDown.removeClass('onthetop');
-			}, 300)
-		}
-	);
-		
-	$('.act__item').click(function (e) {
-		e.preventDefault();
-		$(this).toggleClass('active');
-	});
-});
-;
+  $('.catalogue__card').mouseleave(
+    function goBack() {
+      var cardGoesDown = $(this).find('.onthetop');
+      setTimeout(function () {
+        cardGoesDown.removeClass('onthetop');
+      }, 99)
+    }
+  );
+
+  $('.act__item').click(function (e) {
+    e.preventDefault();
+    $(this).toggleClass('active');
+  });
+});;

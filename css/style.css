@@ -2156,6 +2156,10 @@ img {
             flex: 0 0 302px;
   }
 
+  .catalogue {
+    margin-left: -10px;
+  }
+
   .choices {
     width: 100%;
     max-width: 100%;

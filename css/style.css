@@ -1068,7 +1068,7 @@ img {
 }
 
 .section-filter {
-  padding: 18px 0 30px;
+  padding: 18px 0;
   border-bottom: 1px solid #E5E5E5;
 }
 
@@ -1076,7 +1076,6 @@ img {
   font-size: 18px;
   line-height: 22px;
   font-weight: 300;
-  margin-bottom: 15px;
 }
 
 .section-filter__slider {
@@ -1479,6 +1478,10 @@ img {
 
 .spoller.active:after {
   background: url("../img/filter/spoiler-open.svg");
+}
+
+.spoller-body {
+  padding-top: 15px;
 }
 
 .filters-page .pagination {

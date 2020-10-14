@@ -1,3 +1,5 @@
+//================Страница с фильтрами=================
+
 var slider = document.getElementById('range');
 
 noUiSlider.create(slider, {
@@ -39,8 +41,8 @@ maxCostInput.addEventListener('change', function () {
 $(document).ready(function () {
   $('.spoller').click(function () {
     $(this).toggleClass('active');
-    $(this).siblings('.spoller-body').slideToggle()
-  })
+    $(this).siblings('.spoller-body').slideToggle();
+  });
 
   $('.catalogue__select_filter .catalogue__select-body').on('click', function (event) {
     $('.filters-page__aside').fadeIn();
@@ -97,7 +99,9 @@ const defaultSelect = () => {
   });
 };
 
-defaultSelect();;
+defaultSelect();
+
+//================Страница с фильтрами (конец) =================;
 (function (e) {
 	e.fn.hoverIntent = function (t, n, r) {
 		var i = {
